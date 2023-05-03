@@ -50,17 +50,8 @@ li a {
     height: 100%;
     background-image: url('images/LentopolyMainMenu.png');
     background-size: cover;
-    animation: fade-out 2s ease-in-out 4s forwards;
 }
 
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
 .airport {
   position: absolute;
   width: 10px;
@@ -82,13 +73,12 @@ li a {
     margin-top: 7px;
 }
 #timeimg{
-    background-image: url("images/time.png");
+    background-image: url("images/time2.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 7px;
 }
 #controls {
-
       margin: 400px 0 15px 30px;
       background-color: #98d9ff;
       width: 200px;
@@ -101,10 +91,6 @@ li a {
     font-size: 18px;
 }
 
-
-.loan:hover {background-color: #6793ab;}
-.debt:hover {background-color: #6793ab;}
-
 .buttoff {
     border: none;
     background-color: inherit;
@@ -112,4 +98,30 @@ li a {
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
     cursor: pointer;
+}
+#play{
+    display: block;
+    position: center;
+    margin: 400px 0 15px 550px;
+    padding-top: 10px;
+    background-color: #98d9ff;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    border: 8px solid rgba(0,19,41,0.87);
+    text-decoration: none;
+}
+.airport {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('images/redbutton.png');
+  background-size: cover;
+    background-color: rgba(255, 0, 0, 0);
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.airport:hover {
+  opacity: 1;
 }

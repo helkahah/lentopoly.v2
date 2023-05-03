@@ -1,9 +1,8 @@
+import random
 import time
 
 import mysql.connector
-import math
-import random
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -15,6 +14,8 @@ connection = mysql.connector.connect(
     password="Gr007",
     database="flight_game"
 )
+
+cursor = connection.cursor()
 
 types = {
     "balloonport": ("Balloonport", 1, range(4, 6), 0.3),
@@ -29,25 +30,20 @@ money_multiplier = 100000
 
 @app.route('/get_all')
 def get_all():
-    cursor = connection.cursor()
     cursor.execute("SELECT name FROM airport WHERE type NOT IN ('closed', 'balloonport', 'heliport', 'seaplane_base')")
     cursor_data = cursor.fetchall()
     return jsonify([str(item[0]) for item in cursor_data])
 
 @app.route('/new_airport/<name>')
 def new_airport(name):
-    time.sleep(2)
     name = str(name)
+    time.sleep(2)
+    print()
     print(name)
-    cursor = connection.cursor()
-    print(2)
-    while True:
-        try:
-            cursor.execute(f"SELECT type, iso_region, iso_country, continent, latitude_deg, longitude_deg  FROM airport WHERE name = '{name}'")
-            break
-        except:
-            print("Error executing query, retrying...")
-            time.sleep(1)
+    try:
+        cursor.execute(f"SELECT type, iso_region, iso_country, continent, latitude_deg, longitude_deg  FROM airport WHERE name = '{name}'")
+    except:
+        print("bruh")
     print("Cursor passed!")
     cursor_data = cursor.fetchone()
 
@@ -69,6 +65,8 @@ def new_airport(name):
         "country": cursor_data[2],
         "continent": cursor_data[3],
     }
+
+    print(data)
 
     return jsonify(data)
 

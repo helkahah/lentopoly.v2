@@ -3,7 +3,9 @@
 let available_airports = [];
 let ownedAirports = [];
 let playerMoney = 1000000;
-document.getElementById('money').innerHTML = playerMoney + '€';
+let playerDebt = 0;
+document.getElementById('debt').innerHTML = playerDebt;
+document.getElementById('money').innerHTML = playerMoney;
 // Timer
 let seconds = 365;
 let timer = setInterval(function() {
@@ -30,15 +32,18 @@ async function storeAirportNamesInSession() {
 
 // Function to call a random airport using the previously loaded name list
 function getRandomAirport() {
-  console.log(1)
   const airportNames = JSON.parse(sessionStorage.getItem('airportNames'));
   const randomAirportName = airportNames[Math.floor(Math.random() * airportNames.length)];
-  console.log(randomAirportName)
+
   return fetch(`http://127.0.0.1:3000/new_airport/${randomAirportName}`)
     .then(response => response.json())
     .then(data => {
       console.log(data);
       return data;
+    })
+    .catch(error => {
+      console.log('Error:', error.message);
+      return getRandomAirport(); // retry the function
     });
 }
 
@@ -46,11 +51,26 @@ function getRandomAirport() {
 function createAirportElement(data) {
   const element = document.createElement('div');
   element.className = 'airport';
-  element.style.top = `${(data.latitude + 90) / 180 * 100}%`; // Convert latitude to percentage
+  const invertLatitude = data.latitude * -1;
+  element.style.top = `${(invertLatitude + 90) / 180 * 100}%`; // Convert latitude to percentage
   element.style.left = `${(data.longitude + 180) / 360 * 100}%`; // Convert longitude to percentage
-  element.innerText = data.name;
-  document.body.appendChild(element);
 
+  // Create the text element and hide it initially
+  const textElement = document.createElement('div');
+  textElement.className = 'airport-text';
+  textElement.innerText = data.name;
+  textElement.style.display = 'none';
+  element.appendChild(textElement);
+
+  // Add event listeners to show/hide the text element
+  element.addEventListener('mouseenter', () => {
+    textElement.style.display = 'block';
+  });
+  element.addEventListener('mouseleave', () => {
+    textElement.style.display = 'none';
+  });
+
+  document.body.appendChild(element);
 }
 
 // Function to get a random airport and create an element for it every second
@@ -68,7 +88,9 @@ async function placeRandomAirport() {
   setTimeout(placeRandomAirport, 1000);
 }
 //currency controls
+
 function LoanPrompt() {
+
   const loanAmount = prompt("Enter loan amount:");
   // Add code to update the money and debt values here
   const currentMoney = parseInt(document.getElementById("money").innerText);
@@ -81,7 +103,7 @@ function LoanPrompt() {
 }
 
 function DebtPrompt() {
-  const debtAmount = prompt("Enter debt amount:");
+  const debtAmount = prompt("How much of your debt do you want to pay:");
   // Add code to update the money and debt values here
   const currentMoney = parseInt(document.getElementById("money").innerText);
   const newMoney = currentMoney - parseInt(debtAmount);
