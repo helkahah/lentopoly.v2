@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lentopoly</title>
+    <script src="js.js" defer></script>
+    <script src="leaflet.js" defer></script>
+    <link rel="stylesheet" href="css.css"/>
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="cover-image"></div>
+    <div class="topbar">
+        <nav>
+            <ul>
+                <li><a id="money">money</a></li>
+                <li><a id="moneyimg"></a></li>
+                <li><a id="debt">debt</a></li>
+                <li><a id="debtimg"></a></li>
+                <li><a id="timer">time</a></li>
+                <li><a id="timeimg"></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="controls">
+        <p id="tasks"><strong>Controls</strong></p>
+        <button type="button" id="loan" class="buttoff" onclick="LoanPrompt()">Take loan</button>
+        <button type="button" id="pay_debt" class="buttoff" onclick="DebtPrompt()">Pay debt</button>
+        <button type="button" id="buy_airport" class="buttoff" onclick="buyAirport()">Buy airports</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+    background-image: url("images/WorldMap_Pixel.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    font-family: 'Press Start 2P', cursive;
+}
+.topbar {
+    display: flex;
+    background-color: rgba(0,19,41,0.87);
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.container {
+    padding-top: 50px;
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+ul {
+
+    list-style-type: none;
+    padding-left: 5px;
+    overflow: hidden;
+    color: #f4f4f4;
+    text-decoration: none;
+    margin: 0;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  padding: 23px;
+  font-size: large;
+  text-decoration: none;
+}
+#cover-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/LentopolyMainMenu.png');
+    background-size: cover;
+    animation: fade-out 2s ease-in-out 4s forwards;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.airport {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  transform: translate(-50%, -50%);
+}
+#moneyimg{
+    background-image: url("images/money.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+}
+#debtimg{
+    background-image: url("images/loan.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+}
+#timeimg{
+    background-image: url("images/time.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+}
+#controls {
+
+      margin: 400px 0 15px 30px;
+      background-color: #98d9ff;
+      width: 200px;
+      height: 200px;
+      border: 8px solid rgba(0,19,41,0.87);
+}
+
+#tasks {
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+
+.loan:hover {background-color: #6793ab;}
+.debt:hover {background-color: #6793ab;}
+
+.buttoff {
+    border: none;
+    background-color: inherit;
+    padding: 0 0 0 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    cursor: pointer;
+}
