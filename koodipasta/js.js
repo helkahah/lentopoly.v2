@@ -2,12 +2,12 @@
 
 let availableAirports = [];
 let ownedAirports = [];
-let playerMoney = 1000000;
+let playerMoney = 10000000;
 let playerDebt = 0;
 document.getElementById('debt').innerHTML = playerDebt;
 document.getElementById('money').innerHTML = playerMoney;
 // Timer
-let seconds = 365;
+let seconds = 60;
 let timer = setInterval(function() {
     document.getElementById('timer').innerHTML = seconds;
     seconds--;
@@ -80,6 +80,7 @@ function createAirportElement(data) {
     }
   }, 30000);
 
+  // Airport information and purchase
   element.addEventListener('click', () => {
     clearTimeout(timer);
     if (airportInfo !== null) {
@@ -210,6 +211,7 @@ function DebtPrompt() {
     }
   const newDebt = currentDebt - parseInt(debtAmount);
   document.getElementById("debt").innerText = newDebt;
+  playerDebt = newDebt;
 }
 
 function increaseDebt() {
@@ -231,7 +233,7 @@ function increaseDebt() {
   playerDebt = newDebt;
 }
 
-let revenueIntervalId;
+
 let totalRevenue = 0;
 
 // Function to add revenue to player's money
@@ -247,7 +249,7 @@ function addRevenue() {
 }
 
 // Start the revenue interval
-revenueIntervalId = setInterval(addRevenue, 5000);
+setInterval(addRevenue, 5000);
 setInterval(increaseDebt, 10000);
 
 
