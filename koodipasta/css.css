@@ -48,8 +48,50 @@ li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/LentopolyMainMenu.png');
+    background-image: url('images/cloud-sky-with-pixel-art-style_475147-110.png');
     background-size: cover;
+}
+
+#Lentopoly {
+    color: #e8e8e8;
+    margin: 100px 0 0 0;
+    padding-bottom: 0;
+    font-size: 80px;
+    background-color: inherit;
+    letter-spacing: .1em;
+    text-align: center;
+    text-shadow:
+      0 -4px 0 #ffffff,
+      0 1px 0 #2e2e2e,
+      0 2px 0 #2c2c2c,
+      0 3px 0 #2a2a2a,
+      0 4px 0 #282828,
+      0 5px 0 #262626,
+      0 6px 0 #242424,
+      0 7px 0 #222,
+      0 8px 0 #202020,
+      0 9px 0 #1e1e1e,
+      0 10px 0 #1c1c1c,
+      0 11px 0 #1a1a1a,
+      0 12px 0 #181818,
+      0 13px 0 #161616,
+      0 14px 0 #141414,
+      0 15px 0 #121212,
+      0 22px 30px rgba(0, 0, 0, 0.9)
+
+}
+
+#deco {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #2a2a2a;
+    padding: 0 30px 0 0;
+    margin: 0;
+}
+
+#end-screen {
+    background-image: url('images/endscreen.png');
 }
 
 .airport {
@@ -94,15 +136,16 @@ li a {
 .buttoff {
     border: none;
     background-color: inherit;
-    padding: 0 0 0 10px;
+    padding: 5px 0 15px 10px;
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
     cursor: pointer;
 }
+
 #play{
     display: block;
     position: center;
-    margin: 400px 0 15px 550px;
+    margin: 300px 0 15px 690px;
     padding-top: 10px;
     background-color: #98d9ff;
     text-align: center;
@@ -124,4 +167,120 @@ li a {
 
 .airport:hover {
   opacity: 1;
+}
+.airport-text {
+    color: white;
+  position: absolute;
+  top: calc(50% + 25px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.airport-info {
+    background-color: #98d9ff;
+    width: 400px;
+    height: 250px;
+    border: 8px solid rgba(0,19,41,0.87);
+    margin-left: 30px;
+}
+
+#airport-name {
+    margin-left: 8px;
+}
+
+#variables {
+    padding-left: 8px;
+}
+
+#buy-button {
+    background-color: rgba(0, 37, 79, 0.5);
+    margin-left: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#close-button {
+    background-color: rgba(1, 52, 107, 0.44);
+    margin-left: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#highscore {
+    color: #f8ad83;
+    margin: 100px 0 100px 0;
+    font-size: 50px;
+    background-color: inherit;
+    letter-spacing: .1em;
+    text-align: center;
+    text-shadow:
+      0 -2px 0 #fff,
+      0 1px 0 #2e2e2e,
+      0 2px 0 #2c2c2c,
+      0 3px 0 #2a2a2a,
+      0 4px 0 #282828,
+      0 5px 0 #262626,
+      0 6px 0 #242424,
+      0 7px 0 #222,
+      0 8px 0 #202020,
+      0 9px 0 #1e1e1e,
+      0 10px 0 #1c1c1c,
+      0 11px 0 #1a1a1a,
+      0 12px 0 #181818,
+      0 13px 0 #161616,
+      0 14px 0 #141414,
+      0 15px 0 #121212,
+      0 22px 30px rgba(0, 0, 0, 0.9)
+}
+
+#final-score {
+    color: #F16342;
+    margin: 100px 0 30px 0;
+    padding-bottom: 0;
+    font-size: 80px;
+    background-color: inherit;
+    letter-spacing: .1em;
+    text-align: center;
+    text-shadow:
+      0 -2px 0 #fad7d0,
+      0 1px 0 #2e2e2e,
+      0 2px 0 #2c2c2c,
+      0 3px 0 #2a2a2a,
+      0 4px 0 #282828,
+      0 5px 0 #262626,
+      0 6px 0 #242424,
+      0 7px 0 #222,
+      0 8px 0 #202020,
+      0 9px 0 #1e1e1e,
+      0 10px 0 #1c1c1c,
+      0 11px 0 #1a1a1a,
+      0 12px 0 #181818,
+      0 13px 0 #161616,
+      0 14px 0 #141414,
+      0 15px 0 #121212,
+      0 22px 30px rgba(0, 0, 0, 0.9)
+
+}
+
+#retry{
+    display: flex;
+    position: center;
+    margin: 80px 0 100px 690px;
+    padding-top: 10px;
+    background-color: #f8ad83;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    border: 8px solid #F16342;
+    text-decoration: none;
+    color: #D92430;
+
+}
+
+h3 {
+    color: #f8ad83;
+    text-align: center;
 }

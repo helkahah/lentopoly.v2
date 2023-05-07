@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lentopoly</title>
+    <script src="js.js" defer></script>
+    <script src="leaflet.js" defer></script>
+    <link rel="stylesheet" href="css.css"/>
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body id="end-screen">
+    <h1 id="highscore">SCORE</h1>
+    <h3 id="end_revenue">+Revenue from airports</h3>
+    <h3 id="end_debt">-Debts</h3>
+    <h1 id="final-score">NUMBERS</h1>
+    <div>
+        <a href="game.html" id="retry">TRY AGAIN</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const revenue = parseInt(urlParams.get('revenue'));
+        const debt = parseInt(urlParams.get('debt'));
+
+        console.log(debt, revenue);
+
+        document.getElementById('end_revenue').innerHTML = `+Revenue from airports: €${revenue}`;
+        document.getElementById('end_debt').innerHTML = `-Debts: €${debt}`;
+
+        const finalScore = revenue - debt;
+        document.getElementById('final-score').innerHTML = `${finalScore}`;
+    </script>
+</body>
+
+</html>

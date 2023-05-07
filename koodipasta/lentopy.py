@@ -55,9 +55,10 @@ def new_airport(name):
 
     data = {
         "name": name,
+        "type": type_[0],
         "price": price,
         "revenue": random.randint(revenue_range.start, revenue_range.stop) * money_multiplier,
-        "price_sell": price*0.7,
+        "price_sell": price * 0.7,
         "repair_cost": type_[3] * money_multiplier,
         "latitude": cursor_data[4],
         "longitude": cursor_data[5],
